@@ -194,72 +194,7 @@ def predict_defects(train, test, seed):
 
 def bellw(source, target, fname, verbose=True, n_rep=30):
     result = dict()
-    myfile_check = Path(fname+".txt")
-    if myfile_check.is_file():
-        open(fname+".txt", 'w').close()
-    for tgt_name, tgt in target.items():
-        stats = []
-        # charts = []
-        if verbose: print("{} \r".format(tgt_name[0].upper() + tgt_name[1:]))
-        # val = []
-        for src_name, src in source.items():
-            if not src_name == tgt_name:
-                sc = list2dataframe(src.data)
-                tg = list2dataframe(tgt.data)
-                pd, pf, pr, f1, g, auc = [], [], [], [], [], []
-                for _ in range(n_rep):
-                    rseed = random.randint(1, 100)
-                    _train, __test = weight_training(test_instance=tg, training_instance=sc)
-                    actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
-                    p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
-
-                    pd.append(p_d)
-                    pf.append(p_f)
-                    pr.append(p_r)
-                    f1.append(f_1)
-                    g.append(_g)
-                    auc.append(int(auroc))
-
-                stats.append([src_name, int(np.mean(pd)), int(np.mean(pf)),
-                              int(np.mean(pr)), int(np.mean(f1)),
-                              int(np.mean(g)), int(np.mean(auc))])  # ,
-
-        stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),  # Sort by G Score
-                                 columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])  # ,
-        with open(fname+".txt", "a") as myfile:
-            myfile.write("{} \r".format(tgt_name[0].upper() + tgt_name[1:]))
-            myfile.write(stats.to_string(index=False))
-            myfile.write("\n\n")
-        result.update({tgt_name: stats})
-        # print(result)
-    return result
-
-def bell_output(fname):
-    projects = get_all_projects()
-    comm = projects[fname]
-    return bellw(comm, comm, fname)
-
-def bell_ranking(fname):
-    result = dict()
-    stats = []
-    projects = get_all_projects()
-    comm = projects[fname]
-    output = bellw(comm, comm, fname)
-    for k, v in output.items():
-        result.update({k: v["G"].median()})
-        stats.append([k, int(v["G"].median())])
-    stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-1], reverse=True),  # Sort by G Score
-    columns=["Name", "Median_G_Score"])  # ,
-    myfile_check = Path(fname+"_ranking.txt")
-    if myfile_check.is_file():
-        open(fname+"_ranking.txt", 'w').close()
-    with open(fname+"_ranking.txt", "a") as myfile:
-        myfile.write(stats.to_string(index=False))
-        myfile.write("\n")    
     return result
 
 if __name__ == "__main__":
-    bell_ranking("NASA")
-    bell_ranking("Apache")
-    bell_ranking("AEEEM")
-    bell_ranking("RELINK")
+    print("test")
