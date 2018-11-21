@@ -197,7 +197,7 @@ def bellw(source, target, verbose=True, n_rep=30):
 
     lives = 10
     threshold = 0.4
-    step_siize = 0.1
+    step_size = 0.1
 
     while lives > 0:
         for src_name, src in source.items():
@@ -207,8 +207,8 @@ def bellw(source, target, verbose=True, n_rep=30):
             # val = []
             for tgt_name, tgt in target.items():
                 if not src_name == tgt_name:
-                    sc = list2dataframe(src.data,step_siize)
-                    tg = list2dataframe(tgt.data,step_siize)
+                    sc = list2dataframe(src.data,step_size)
+                    tg = list2dataframe(tgt.data,step_size)
                     pd, pf, pr, f1, g, auc = [], [], [], [], [], []
                     for _ in range(n_rep):
                         rseed = random.randint(1, 100)

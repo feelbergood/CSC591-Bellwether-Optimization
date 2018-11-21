@@ -180,23 +180,11 @@ def weight_training(test_instance, training_instance):
 
 
 def list2dataframe(lst,step_size):
-    # print(lst)
-    # new_lst = lst[np.random.choice(lst.shape[0], step_size*len(lst), replace=False)]
     data = [pandas.read_csv(elem) for elem in lst]
-    # print("Data", data)
-    # print("Len data", len(data))
-    # print("Before sampling:",data)
     new_data = []
     for x in data:
-        # print("X",x)
         new_x = x.sample(frac=step_size)
-        # print("New X", new_x)
         new_data.append(new_x)
-
-    # data = [data[i] for i in random.sample(range(len(data)),int(step_size*len(data)))]
-    # print("New Data:",new_data)
-    # print("Percent: ",int(step_size*len(data)))
-    # print("After Sampling",data)
     return pandas.concat(new_data, ignore_index=True)
 
 
@@ -206,78 +194,61 @@ def predict_defects(train, test, seed):
     predicted, distr = rf_model(train, test, seed)
     return actual, predicted, distr
 
-
 def bellw(source, target, verbose=True, n_rep=30):
-
-    lives = 10
+    lives = 1
     threshold = 53
-    step_siize = 0.25
-
+    step_size = 0.25
+    result = dict()
+    
     while lives > 0:
-        result = dict()
+        result.clear()  
         for src_name, src in source.items():
             stats = []
-            # charts = []
             if verbose: print("{} \r".format(src_name[0].upper() + src_name[1:]))
-            # val = []
             for tgt_name, tgt in target.items():
                 if not src_name == tgt_name:
-                    sc = list2dataframe(src.data,step_siize)
-                    tg = list2dataframe(tgt.data,step_siize)
+                    sc = list2dataframe(src.data,step_size)
+                    tg = list2dataframe(tgt.data,step_size)
                     pd, pf, pr, f1, g, auc = [], [], [], [], [], []
                     for _ in range(n_rep):
                         rseed = random.randint(1, 100)
                         _train, __test = weight_training(test_instance=tg, training_instance=sc)
                         actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
                         p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
-
                         pd.append(p_d)
                         pf.append(p_f)
                         pr.append(p_r)
                         f1.append(f_1)
                         g.append(_g)
                         auc.append(int(auroc))
-
-                    stats.append([src_name, int(np.median(pd)), int(np.median(pf)),
+                    stats.append([tgt_name, int(np.median(pd)), int(np.median(pf)),
                                   int(np.median(pr)), int(np.median(f1)),
-                                  int(np.median(g)), int(np.median(auc))])  # ,
-
+                                  int(np.median(g)), int(np.median(auc))])
             stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),  # Sort by G Score
-                                     columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])  # ,
-
+                                     columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])
             # with open("apache.txt", "a") as myfile:
             #     myfile.write("{} \r".format(src_name[0].upper() + src_name[1:]))
             #     myfile.write(stats.to_string(index=False))
             #     myfile.write("\n\n")
+            print(stats)
             result.update({src_name: stats})
-        # ranking = dict()
-        # rank_stats = []
         remove_lst = []
         for k, v in result.items():
-            print("Values: Key, Median, threshold",k,v["G"].median(),threshold)
             if v["G"].median() < threshold:
                 remove_lst.append(k)
-        print("Remove list",remove_lst)
-            # ranking.update({k: v["G"].median()})
-            # rank_stats.append([k, int(v["G"].median())])
-        # rank_stats = pandas.DataFrame(sorted(rank_stats, key=lambda lst: lst[-1], reverse=True)) # Sort by G Score
+        print("Datasets to remove: ",remove_lst)
         if len(remove_lst)==0:
-            print(lives)
-            # threshold = threshold + 1
             lives = lives - 1
         else:
             threshold = threshold + 1
             for src in remove_lst:
                 source.pop(src, None)
                 target.pop(src, None)
-
-        if step_siize < 0.95:
-            step_siize = step_siize + 0.05
-        # print(result)
-
-    print(source.items())
-
-    # return result
+            lives = lives - 1
+        if step_size < 0.95:
+            step_size = step_size + 0.05
+    print(result)
+    return result
 
 
 # def bell_ranking(fname):
