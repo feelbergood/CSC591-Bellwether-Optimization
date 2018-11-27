@@ -1,0 +1,7 @@
+Iteration 1
+Apache Name  Pd  Pf  Prec  F1   G  AUC
+Safe  57  14    66  61  69   79
+
+Safe Name  Pd  Pf  Prec  F1   G  AUC
+Apache  73  26    70  71  73   80
+

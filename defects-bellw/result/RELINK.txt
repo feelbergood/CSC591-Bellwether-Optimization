@@ -1,0 +1,12 @@
+Apache Name  Pd  Pf  Prec  F1   G  AUC
+ Safe  59  26    63  59  66   82
+Zxing  38  22    41  40  54   62
+
+Safe Name  Pd  Pf  Prec  F1   G  AUC
+Apache  71  26    73  72  72   77
+ Zxing  40  24    40  40  55   64
+
+Zxing Name  Pd  Pf  Prec  F1   G  AUC
+  Safe  72  23    66  68  73   82
+Apache  29  22    57  38  47   64
+

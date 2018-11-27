@@ -1,0 +1,7 @@
+Iteration 1
+EQ Name  Pd  Pf  Prec  F1   G  AUC
+ ML  34  22    18  23  51   56
+
+ML Name  Pd  Pf  Prec  F1   G  AUC
+ EQ  69  20    69  69  74   73
+

@@ -1,0 +1,7 @@
+PDE Name  Median_G_Score
+PDE            62.5
+ ML            67.0
+ LC            66.5
+JDT            59.0
+ EQ            61.5
+

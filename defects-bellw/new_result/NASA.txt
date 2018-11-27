@@ -1,0 +1,7 @@
+Iteration 1
+Jm Name  Pd  Pf  Prec  F1   G  AUC
+ mw  58  22    26  36  67   71
+
+Mw Name  Pd  Pf  Prec  F1   G  AUC
+ jm  45  25    31  37  58   64
+

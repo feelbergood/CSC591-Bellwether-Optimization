@@ -1,0 +1,5 @@
+Iteration 1
+Name  Median_G_Score
+ mw            58.0
+ jm            67.0
+

@@ -1,0 +1,12 @@
+Xerces Name  Median_G_Score
+  xerces            55.0
+   xalan            55.0
+velocity            50.0
+     poi            62.0
+  lucene            59.0
+   log4j            58.0
+   jedit            57.0
+     ivy            54.0
+   camel            55.0
+     ant            57.0
+
