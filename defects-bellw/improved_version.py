@@ -10,6 +10,7 @@ import numpy as np
 import pandas
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import *
+from pathlib import Path
 
 with warnings.catch_warnings():
     # Shut those god damn warnings up!
@@ -19,7 +20,6 @@ root = os.getcwd()
 dir = os.path.abspath(os.path.join(root, "datasets"))
 if root not in sys.path:
     sys.path.append(root)
-
 
 class _Data:
 
@@ -46,7 +46,6 @@ class NASA:
         for file in ["cm", "jm", "kc", "mc", "mw"]:
             self.projects.update({file: _Data(dataName=file, type='nasa')})
 
-
 class Jureczko:
     "Apache"
 
@@ -55,7 +54,6 @@ class Jureczko:
         for file in ['ant', 'camel', 'ivy', 'jedit', 'log4j',
                      'lucene', 'poi', 'velocity', 'xalan', 'xerces']:
             self.projects.update({file: _Data(dataName=file, type='jur')})
-
 
 class AEEEM:
     "AEEEM"
@@ -74,13 +72,11 @@ class ReLink:
         for file in ["Apache", "Safe", "Zxing"]:
             self.projects.update({file: _Data(dataName=file, type='relink')})
 
-
 def get_all_projects():
     all = dict()
     for community in [Jureczko, AEEEM, ReLink, NASA]:
         all.update({community.__doc__: community().projects})
     return all
-
 
 def abcd(actual, predicted, distribution, as_percent=True):
     actual = [1 if a > 0 else 0 for a in actual]
@@ -154,7 +150,6 @@ def abcd(actual, predicted, distribution, as_percent=True):
     else:
         return p_d, p_f, p_r, r_c, f1, e_d, g, auroc
 
-
 def rf_model(source, target, seed):
     clf = RandomForestClassifier(n_estimators=seed, random_state=1)
     features = source.columns[:-1]
@@ -163,7 +158,6 @@ def rf_model(source, target, seed):
     preds = clf.predict(target[target.columns[:-1]])
     distr = clf.predict_proba(target[target.columns[:-1]])
     return preds, distr[:, 1]
-
 
 def weight_training(test_instance, training_instance):
     head = training_instance.columns
@@ -178,12 +172,13 @@ def weight_training(test_instance, training_instance):
     columns = list(set(tgt[:-1]).intersection(new_test.columns[:-1])) + [tgt[-1]]
     return new_train[columns], new_test[columns]
 
-
-def list2dataframe(lst,step_size):
-    new_lst = lst[np.random.choice(lst.shape[0], step_size*len(lst), replace=False)]
-    data = [pandas.read_csv(elem) for elem in new_lst]
-    return pandas.concat(data, ignore_index=True)
-
+def list2dataframe(lst, step_size):
+    data = [pandas.read_csv(elem) for elem in lst]
+    new_data = []
+    for x in data:
+        new_x = x.sample(frac=step_size)
+        new_data.append(new_x)
+    return pandas.concat(new_data, ignore_index=True)
 
 def predict_defects(train, test, seed):
     actual = test[test.columns[-1]].values.tolist()
@@ -191,20 +186,29 @@ def predict_defects(train, test, seed):
     predicted, distr = rf_model(train, test, seed)
     return actual, predicted, distr
 
-
-def bellw(source, target, verbose=True, n_rep=30):
-    result = dict()
-
+def bellw(source, target, fname, verbose=True, n_rep=30):
     lives = 10
-    threshold = 0.4
-    step_size = 0.1
+    threshold = 52
+    step_size = 0.25
 
     while lives > 0:
+        counter = 1
+        result = dict()
+        myfile_check = Path("new_result/"+fname+".txt")
+        if myfile_check.is_file():
+            open("new_result/"+fname+".txt", 'w').close()
+        with open("new_result/"+fname+".txt", "a") as myfile:
+            myfile.write("Iteration "+str(counter)+"\n")
+
+        myrankingfile_check = Path("new_result/"+fname+"_ranking.txt")
+        if myrankingfile_check.is_file():
+            open("new_result/"+fname+"_ranking.txt", 'w').close()
+        with open("new_result/"+fname+"_ranking.txt", "a") as myfile:
+            myfile.write("Iteration "+str(counter)+"\n")
+
         for src_name, src in source.items():
             stats = []
-            # charts = []
             if verbose: print("{} \r".format(src_name[0].upper() + src_name[1:]))
-            # val = []
             for tgt_name, tgt in target.items():
                 if not src_name == tgt_name:
                     sc = list2dataframe(src.data,step_size)
@@ -215,7 +219,6 @@ def bellw(source, target, verbose=True, n_rep=30):
                         _train, __test = weight_training(test_instance=tg, training_instance=sc)
                         actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
                         p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
-
                         pd.append(p_d)
                         pf.append(p_f)
                         pr.append(p_r)
@@ -223,53 +226,68 @@ def bellw(source, target, verbose=True, n_rep=30):
                         g.append(_g)
                         auc.append(int(auroc))
 
-                    stats.append([src_name, int(np.median(pd)), int(np.median(pf)),
+                    stats.append([tgt_name, int(np.median(pd)), int(np.median(pf)),
                                   int(np.median(pr)), int(np.median(f1)),
-                                  int(np.median(g)), int(np.median(auc))])  # ,
+                                  int(np.median(g)), int(np.median(auc))])
 
-            stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),  # Sort by G Score
-                                     columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])  # ,
-
-            with open("apache.txt", "a") as myfile:
+            stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),
+                                     columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])
+            
+            with open("new_result/"+fname+".txt", "a") as myfile:
                 myfile.write("{} \r".format(src_name[0].upper() + src_name[1:]))
                 myfile.write(stats.to_string(index=False))
                 myfile.write("\n\n")
+            
             result.update({src_name: stats})
-        ranking = dict()
-        rank_stats = []
+
+        ranking = []
         for k, v in result.items():
-            ranking.update({k: v["G"].median()})
-            rank_stats.append([k, int(v["G"].median())])
-        rank_stats = pandas.DataFrame(sorted(rank_stats, key=lambda lst: lst[-1], reverse=True)) # Sort by G Score
-        # print(result)
-    return result
+            ranking.append([k, v["G"].median()])
+        ranking = pandas.DataFrame(sorted(ranking, key=lambda lst: lst[-2], reverse=True),  # Sort by G Score
+            columns=["Name", "Median_G_Score"])
+        with open("new_result/"+fname+"_ranking.txt", "a") as myfile:
+            myfile.write(ranking.to_string(index=False))
+            myfile.write("\n\n")
+
+        remove_lst = []
+        g_scores = []
+        for k, v in result.items():
+            print("Values: Key, Median, threshold",k,v["G"].median(),threshold)
+            g_scores.append({"dataset": k,"Gscore" : v["G"].median()})
+            if v["G"].median() < threshold:
+                remove_lst.append(k)
+        g_scores = sorted(g_scores,key = lambda k: k["Gscore"])
+        # print(g_scores)
+        print("Remove list",remove_lst)
+        len_items = len(g_scores)/3
+        remove_lst = g_scores[0:int(len_items)]
+        print(remove_lst)
+
+        if len(remove_lst)==0:
+            print(lives)
+            # threshold = threshold + 1
+            lives = lives - 1
+        else:
+            # threshold = threshold + 1
+            for src in remove_lst:
+                source.pop(src["dataset"], None)
+                target.pop(src["dataset"], None)
+                # source.pop(src, None)
+                # target.pop(src, None)
+        counter += 1
+        if step_size < 0.95:
+            step_size = step_size + 0.05
+
+    print(source.items())
 
 
-# def bell_ranking(fname):
-#     result = dict()
-#     stats = []
-#     projects = get_all_projects()
-#     comm = projects[fname]
-#     output = bellw(comm, comm, fname)
-#     for k, v in output.items():
-#         result.update({k: v["G"].median()})
-#         stats.append([k, int(v["G"].median())])
-#     stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-1], reverse=True),  # Sort by G Score
-#     columns=["Name", "Median_G_Score"])  # ,
-#     myfile_check = Path(fname+"_ranking.txt")
-#     if myfile_check.is_file():
-#         open(fname+"_ranking.txt", 'w').close()
-#     with open(fname+"_ranking.txt", "a") as myfile:
-#         myfile.write(stats.to_string(index=False))
-#         myfile.write("\n")
-#     return result
-
-
-def bell_jur():
+def bell_output(fname):
     projects = get_all_projects()
-    apache = projects["Apache"]
-    return bellw(apache, apache, n_rep=1)
-
+    comm = projects[fname]
+    bellw(comm, comm, fname, n_rep=1)
 
 if __name__ == "__main__":
-    bell_jur()
+    bell_output("RELINK")
+    bell_output("Apache")
+    bell_output("AEEEM")
+    bell_output("NASA")

@@ -21,7 +21,6 @@ dir = os.path.abspath(os.path.join(root, "datasets"))
 if root not in sys.path:
     sys.path.append(root)
 
-
 class _Data:
 
     def __init__(self, dataName='ant', type='jur'):
@@ -38,7 +37,6 @@ class _Data:
 
         self.data = glob(os.path.join(dir, dataName, "*.csv"))
 
-
 class NASA:
     "NASA"
 
@@ -46,7 +44,6 @@ class NASA:
         self.projects = {}
         for file in ["cm", "jm", "kc", "mc", "mw"]:
             self.projects.update({file: _Data(dataName=file, type='nasa')})
-
 
 class Jureczko:
     "Apache"
@@ -57,7 +54,6 @@ class Jureczko:
                      'lucene', 'poi', 'velocity', 'xalan', 'xerces']:
             self.projects.update({file: _Data(dataName=file, type='jur')})
 
-
 class AEEEM:
     "AEEEM"
 
@@ -65,7 +61,6 @@ class AEEEM:
         self.projects = {}
         for file in ["EQ", "JDT", "LC", "ML", "PDE"]:
             self.projects.update({file: _Data(dataName=file, type='aeeem')})
-
 
 class ReLink:
     "RELINK"
@@ -75,13 +70,11 @@ class ReLink:
         for file in ["Apache", "Safe", "Zxing"]:
             self.projects.update({file: _Data(dataName=file, type='relink')})
 
-
 def get_all_projects():
     all = dict()
     for community in [Jureczko, AEEEM, ReLink, NASA]:
         all.update({community.__doc__: community().projects})
     return all
-
 
 def abcd(actual, predicted, distribution, as_percent=True):
     actual = [1 if a > 0 else 0 for a in actual]
@@ -178,11 +171,9 @@ def weight_training(test_instance, training_instance):
     columns = list(set(tgt[:-1]).intersection(new_test.columns[:-1])) + [tgt[-1]]
     return new_train[columns], new_test[columns]
 
-
 def list2dataframe(lst):
     data = [pandas.read_csv(elem) for elem in lst]
     return pandas.concat(data, ignore_index=True)
-
 
 def predict_defects(train, test, seed):
     actual = test[test.columns[-1]].values.tolist()
@@ -195,6 +186,10 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
     myfile_check = Path("result/"+fname+".txt")
     if myfile_check.is_file():
         open("result/"+fname+".txt", 'w').close()
+    
+    myrankingfile_check = Path("result/"+fname+"_ranking.txt")
+    if myrankingfile_check.is_file():
+        open("result/"+fname+"_ranking.txt", 'w').close()
 
     for src_name, src in source.items():
         stats = []
@@ -215,6 +210,7 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
                     f1.append(f_1)
                     g.append(_g)
                     auc.append(int(auroc))
+
                 stats.append([tgt_name, int(np.median(pd)), int(np.median(pf)),
                                 int(np.median(pr)), int(np.median(f1)),
                                 int(np.median(g)), int(np.median(auc))])
@@ -224,8 +220,16 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
             myfile.write("{} \r".format(src_name[0].upper() + src_name[1:]))
             myfile.write(stats.to_string(index=False))
             myfile.write("\n\n")
-        print(stats)
         result.update({src_name: stats})
+    
+    ranking = []
+    for k, v in result.items():
+        ranking.append([k, v["G"].median()])
+    ranking = pandas.DataFrame(sorted(ranking, key=lambda lst: lst[-2], reverse=True),  # Sort by G Score
+        columns=["Name", "Median_G_Score"])
+    with open("result/"+fname+"_ranking.txt", "a") as myfile:
+        myfile.write(ranking.to_string(index=False))
+        myfile.write("\n\n")
     print(result)
     return result
 
@@ -235,7 +239,7 @@ def bell_output(fname):
     return bellw(comm, comm, fname)
 
 if __name__ == "__main__":
-    bell_output("NASA")
+    bell_output("RELINK")
     bell_output("Apache")
     bell_output("AEEEM")
-    bell_output("RELINK")
+    bell_output("NASA")
