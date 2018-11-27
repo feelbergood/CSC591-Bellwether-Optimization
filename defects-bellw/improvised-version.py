@@ -187,7 +187,6 @@ def list2dataframe(lst,step_size):
         new_data.append(new_x)
     return pandas.concat(new_data, ignore_index=True)
 
-
 def predict_defects(train, test, seed):
     actual = test[test.columns[-1]].values.tolist()
     actual = [1 if act == "T" else 0 for act in actual]
@@ -224,7 +223,7 @@ def bellw(source, target, verbose=True, n_rep=30):
                     stats.append([tgt_name, int(np.median(pd)), int(np.median(pf)),
                                   int(np.median(pr)), int(np.median(f1)),
                                   int(np.median(g)), int(np.median(auc))])
-            stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),  # Sort by G Score
+            stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),
                                      columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])
             # with open("apache.txt", "a") as myfile:
             #     myfile.write("{} \r".format(src_name[0].upper() + src_name[1:]))
@@ -249,27 +248,6 @@ def bellw(source, target, verbose=True, n_rep=30):
             step_size = step_size + 0.05
     print(result)
     return result
-
-
-# def bell_ranking(fname):
-#     result = dict()
-#     stats = []
-#     projects = get_all_projects()
-#     comm = projects[fname]
-#     output = bellw(comm, comm, fname)
-#     for k, v in output.items():
-#         result.update({k: v["G"].median()})
-#         stats.append([k, int(v["G"].median())])
-#     stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-1], reverse=True),  # Sort by G Score
-#     columns=["Name", "Median_G_Score"])  # ,
-#     myfile_check = Path(fname+"_ranking.txt")
-#     if myfile_check.is_file():
-#         open(fname+"_ranking.txt", 'w').close()
-#     with open(fname+"_ranking.txt", "a") as myfile:
-#         myfile.write(stats.to_string(index=False))
-#         myfile.write("\n")
-#     return result
-
 
 def bell_jur():
     projects = get_all_projects()
