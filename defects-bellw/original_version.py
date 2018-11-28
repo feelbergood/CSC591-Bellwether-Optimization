@@ -182,6 +182,7 @@ def predict_defects(train, test, seed):
     return actual, predicted, distr
 
 def bellw(source, target, fname, verbose=True, n_rep=30):
+    num_comparisons = 0
     result = dict()
     myfile_check = Path("result/"+fname+".txt")
     if myfile_check.is_file():
@@ -196,6 +197,7 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
         if verbose: print("{} \r".format(src_name[0].upper() + src_name[1:]))
         for tgt_name, tgt in target.items():
             if not src_name == tgt_name:
+                num_comparisons += 1
                 sc = list2dataframe(src.data)
                 tg = list2dataframe(tgt.data)
                 pd, pf, pr, f1, g, auc = [], [], [], [], [], []
@@ -231,6 +233,7 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
         myfile.write(ranking.to_string(index=False))
         myfile.write("\n\n")
     print(result)
+    print("Number of comparisons: "+num_comparisons)
     return result
 
 def bell_output(fname):
