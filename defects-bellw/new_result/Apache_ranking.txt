@@ -1,5 +1,5 @@
 Iteration 1
 Name  Median_G_Score
-  poi            64.0
-log4j            63.0
+lucene            61.0
+ log4j            61.0
 

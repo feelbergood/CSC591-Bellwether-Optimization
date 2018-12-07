@@ -1,5 +1,5 @@
-Zxing Name  Median_G_Score
- Zxing            60.0
-  Safe            63.5
-Apache            60.0
+Name  Median_G_Score
+ Zxing            56.5
+  Safe            63.0
+Apache            63.5
 

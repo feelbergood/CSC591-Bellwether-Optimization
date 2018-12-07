@@ -1,7 +1,7 @@
 Iteration 1
 Log4j Name  Pd  Pf  Prec  F1   G  AUC
-poi  51  23    69  59  63   69
+lucene  53  29    69  60  61   66
 
-Poi Name  Pd  Pf  Prec  F1   G  AUC
-log4j  58  27    74  65  64   70
+Lucene Name  Pd  Pf  Prec  F1   G  AUC
+log4j  52  28    72  60  61   65
 

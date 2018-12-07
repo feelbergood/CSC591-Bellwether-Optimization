@@ -197,9 +197,9 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
         if verbose: print("{} \r".format(src_name[0].upper() + src_name[1:]))
         for tgt_name, tgt in target.items():
             if not src_name == tgt_name:
-                num_comparisons += 1
                 sc = list2dataframe(src.data)
                 tg = list2dataframe(tgt.data)
+                num_comparisons = num_comparisons + len(sc) + len(tg)
                 pd, pf, pr, f1, g, auc = [], [], [], [], [], []
                 for _ in range(n_rep):
                     rseed = random.randint(1, 100)
@@ -233,7 +233,7 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
         myfile.write(ranking.to_string(index=False))
         myfile.write("\n\n")
     print(result)
-    print("Number of comparisons: "+num_comparisons)
+    print("Number of comparisons: ", num_comparisons)
     return result
 
 def bell_output(fname):
@@ -242,7 +242,7 @@ def bell_output(fname):
     return bellw(comm, comm, fname)
 
 if __name__ == "__main__":
-    bell_output("RELINK")
-    bell_output("Apache")
+    #bell_output("RELINK")
+    #bell_output("Apache")
     bell_output("AEEEM")
-    bell_output("NASA")
+    #bell_output("NASA")

@@ -8,6 +8,7 @@ from glob import glob
 
 import numpy as np
 import pandas
+from datetime import datetime
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import *
 from pathlib import Path
@@ -196,6 +197,83 @@ def predict_defects(train, test, seed):
     return actual, predicted, distr
 
 
+def bellw_modified(initial_source, initial_target, fname, verbose=True, n_rep=30):
+    data_points_count = 0
+
+    wins = dict()
+
+    for name, _ in initial_source.items():
+        wins.update({name: 0})
+
+    print(wins)
+
+    # Reset source and target
+    source = initial_source.copy()
+    target = initial_target.copy()
+    sample_size = 0.20
+    step_size = 0.05
+    lives = 10
+
+    while lives > 0:
+        result = []
+
+        for src_name, src in source.items():
+            sg = []
+            if verbose: print("{} \r".format(src_name[0].upper() + src_name[1:]))
+            for tgt_name, tgt in target.items():
+                if not src_name == tgt_name:
+                    g = []
+                    x = n_rep
+                    while x > 0:
+                        # sample data points from source and target datasets
+                        sc = list2dataframe(src.data, sample_size)
+                        tg = list2dataframe(tgt.data, sample_size)
+
+                        # increment data points count
+                        data_points_count = data_points_count + len(sc) + len(tg)
+
+                        # Train on source, test on target
+                        rseed = random.randint(1, 100)
+                        _train, __test = weight_training(test_instance=tg, training_instance=sc)
+                        actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
+                        p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
+
+                        # Store g-score
+                        g.append(_g)
+                        x = x - 1
+                    sg.append(np.median(g))
+            result.append({"dataset": src_name, "median_g_score": np.median(sg)})
+
+        # sort in ascending order of median g scores
+        result = sorted(result, key=lambda k: k["median_g_score"])
+
+        # Remove 1/3rd of datasets which have the least g scores
+        remove_lst = result[0:int(len(result) / 3)]
+        print("Remove List: ", remove_lst)
+
+        # update lives if remove list is empty
+        if len(remove_lst) == 0:
+            lives = lives - 1
+            print("Reducing lives to ", lives)
+        else: # remove all datasets in remove list
+            for src in remove_lst:
+                source.pop(src["dataset"], None)
+                target.pop(src["dataset"], None)
+            # if no more eliminations can happen, quit this run
+            if len(source) < 3:
+                print("Final G-scores: ", result)
+                lives = 0
+
+        # increment sample_size for next iteration
+        if sample_size <= 1 - step_size:
+            sample_size = sample_size + step_size
+
+    # update wins
+    for src in source:
+        wins.update({src: wins[src] + 1})
+    print("Number of data points used: ", data_points_count)
+    print("Wins:", wins)
+
 def bellw(initial_source, initial_target, fname, verbose=True, n_rep=30):
     data_points_count = 0
 
@@ -273,15 +351,138 @@ def bellw(initial_source, initial_target, fname, verbose=True, n_rep=30):
     print("Number of data points used: ", data_points_count)
     print(wins)
 
+def bellw_original(source, target, fname, verbose=True, n_rep=30):
+    data_points_count = 0
+
+    result = []
+
+    for src_name, src in source.items():
+        sg = []
+        if verbose:
+            print("{} \r".format(src_name[0].upper() + src_name[1:]))
+        for tgt_name, tgt in target.items():
+            if not src_name == tgt_name:
+                g = []
+                x = n_rep
+                while x > 0:
+                    # sample data points from source and target datasets
+                    sc = list2dataframe(src.data, 1)
+                    tg = list2dataframe(tgt.data, 1)
+
+                    # increment data points count
+                    data_points_count = data_points_count + len(sc) + len(tg)
+
+                    # Train on source, test on target
+                    rseed = random.randint(1, 100)
+                    _train, __test = weight_training(test_instance=tg, training_instance=sc)
+                    actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
+                    p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
+
+                    # Store g-score
+                    g.append(_g)
+                    x = x - 1
+                # median g score of source predicting on target over 30 reps
+                sg.append(np.median(g))
+        # median g score of source over all targets
+        result.append({"dataset": src_name, "median_g_score": np.median(sg)})
+
+    # sort in ascending order of median g scores
+    result = sorted(result, key=lambda k: k["median_g_score"])
+
+    print("Final g-scores: ", result)
+
+    print("Number of data points used: ", data_points_count)
+
+def bellw_threshold(initial_source, initial_target, fname, verbose=True, n_rep=30):
+    data_points_count = 0
+
+    wins = dict()
+
+    for name, _ in initial_source.items():
+        wins.update({name: 0})
+
+    print(wins)
+
+    while n_rep > 0:
+
+        # Reset source and target
+        source = initial_source.copy()
+        target = initial_target.copy()
+        sample_size = 0.20
+        step_size = 0.05
+        lives = 4
+        threshold = 52
+
+        while lives > 0:
+            result = []
+
+            for src_name, src in source.items():
+                g = []
+                if verbose: print("{} \r".format(src_name[0].upper() + src_name[1:]))
+                for tgt_name, tgt in target.items():
+                    if not src_name == tgt_name:
+
+                        # sample data points from source and target datasets
+                        sc = list2dataframe(src.data, sample_size)
+                        tg = list2dataframe(tgt.data, sample_size)
+
+                        # increment data points count
+                        data_points_count = data_points_count + len(sc) + len(tg)
+
+                        # Train on source, test on target
+                        rseed = random.randint(1, 100)
+                        _train, __test = weight_training(test_instance=tg, training_instance=sc)
+                        actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
+                        p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
+
+                        # Store g-score
+                        g.append(_g)
+
+                result.append({"dataset": src_name, "median_g_score": np.median(g)})
+
+            # remove datasets with median gscore < threshold
+            remove_lst = []
+            for d in result:
+                if d["median_g_score"] < threshold:
+                        remove_lst.append(d)
+            print("Remove List: ", remove_lst)
+
+            # update lives if remove list is empty
+            if len(remove_lst) == 0:
+                lives = lives - 1
+                print("Reducing lives to ", lives)
+            else: # remove all datasets in remove list
+                for src in remove_lst:
+                    source.pop(src["dataset"], None)
+                    target.pop(src["dataset"], None)
+                # if no more eliminations can happen, quit this run
+                if len(source) < 3:
+                    lives = 0
+
+            # increment sample_size for next iteration
+            if sample_size <= 1 - step_size:
+                sample_size = sample_size + step_size
+
+        n_rep = n_rep - 1
+
+        # update wins
+        for src in source:
+            wins.update({src: wins[src] + 1})
+    print("Number of data points used: ", data_points_count)
+    print(wins)
 
 def bell_output(fname):
     projects = get_all_projects()
     comm = projects[fname]
-    bellw(comm, comm, fname)
+    bellw_modified(comm, comm, fname)
 
 
 if __name__ == "__main__":
     # bell_output("RELINK")
     # bell_output("Apache")
-    bell_output("AEEEM")
+    # bell_output("AEEEM")
     # bell_output("NASA")
+    t1 = datetime.now()
+    bell_output("AEEEM")
+    t2 = datetime.now()
+    print("Time taken: ", t2 - t1)
