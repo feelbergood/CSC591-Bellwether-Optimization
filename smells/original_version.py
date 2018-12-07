@@ -21,60 +21,18 @@ dir = os.path.abspath(os.path.join(root, "datasets"))
 if root not in sys.path:
     sys.path.append(root)
 
-class _Data:
-
-    def __init__(self, dataName='ant', type='jur'):
-        if type == 'jur':
-            dir = os.path.join(root, "data/Jureczko")
-        elif type == 'nasa':
-            dir = os.path.join(root, "data/mccabe")
-        elif type == 'aeeem':
-            dir = os.path.join(root, "data/AEEEM")
-        elif type == "relink":
-            dir = os.path.join(root, "data/Relink")
-        elif type == 'other':
-            dir = os.path.join(root, "data/other/")
-
-        self.data = glob(os.path.join(dir, dataName, "*.csv"))
-
-class NASA:
-    "NASA"
-
-    def __init__(self):
-        self.projects = {}
-        for file in ["cm", "jm", "kc", "mc", "mw"]:
-            self.projects.update({file: _Data(dataName=file, type='nasa')})
-
-class Jureczko:
-    "Apache"
-
-    def __init__(self):
-        self.projects = {}
-        for file in ['ant', 'camel', 'ivy', 'jedit', 'log4j',
-                     'lucene', 'poi', 'velocity', 'xalan', 'xerces']:
-            self.projects.update({file: _Data(dataName=file, type='jur')})
-
-class AEEEM:
-    "AEEEM"
-
-    def __init__(self):
-        self.projects = {}
-        for file in ["EQ", "JDT", "LC", "ML", "PDE"]:
-            self.projects.update({file: _Data(dataName=file, type='aeeem')})
-
-class ReLink:
-    "RELINK"
-
-    def __init__(self):
-        self.projects = {}
-        for file in ["Apache", "Safe", "Zxing"]:
-            self.projects.update({file: _Data(dataName=file, type='relink')})
-
 def get_all_projects():
-    all = dict()
-    for community in [Jureczko, AEEEM, ReLink, NASA]:
-        all.update({community.__doc__: community().projects})
-    return all
+    dir = os.path.abspath(os.path.join(root, "datasets"))
+    datasets = dict()
+    for datapath in os.listdir(dir):
+        formatted_path = os.path.join(dir, datapath)
+        if os.path.isdir(formatted_path):
+            datasets.update({datapath: dict()})
+            files = glob(os.path.join(formatted_path, "*.csv"))
+            for f in files:
+                fname = f.split('\\')[-1].split("-")[0]
+                datasets[datapath].update({fname: f})
+    return datasets
 
 def abcd(actual, predicted, distribution, as_percent=True):
     actual = [1 if a > 0 else 0 for a in actual]
@@ -172,12 +130,11 @@ def weight_training(test_instance, training_instance):
     return new_train[columns], new_test[columns]
 
 def list2dataframe(lst):
-    data = [pandas.read_csv(elem) for elem in lst]
-    return pandas.concat(data, ignore_index=True)
+    data = pandas.read_csv(lst)
+    return data
 
-def predict_defects(train, test, seed):
+def predict_smells(train, test, seed):
     actual = test[test.columns[-1]].values.tolist()
-    actual = [1 if act == "T" else 0 for act in actual]
     predicted, distr = rf_model(train, test, seed)
     return actual, predicted, distr
 
@@ -198,13 +155,13 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
         for tgt_name, tgt in target.items():
             if not src_name == tgt_name:
                 num_comparisons += 1
-                sc = list2dataframe(src.data)
-                tg = list2dataframe(tgt.data)
+                sc = list2dataframe(src)
+                tg = list2dataframe(tgt)
                 pd, pf, pr, f1, g, auc = [], [], [], [], [], []
                 for _ in range(n_rep):
                     rseed = random.randint(1, 100)
                     _train, __test = weight_training(test_instance=tg, training_instance=sc)
-                    actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
+                    actual, predicted, distribution = predict_smells(train=_train, test=__test, seed=rseed)
                     p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
                     pd.append(p_d)
                     pf.append(p_f)
@@ -232,8 +189,7 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
     with open("result/"+fname+"_ranking.txt", "a") as myfile:
         myfile.write(ranking.to_string(index=False))
         myfile.write("\n\n")
-    print(result)
-    print("Number of comparisons: "+num_comparisons)
+    # print("Number of comparisons: "+str(num_comparisons))
     return result
 
 def bell_output(fname):
@@ -242,7 +198,5 @@ def bell_output(fname):
     return bellw(comm, comm, fname)
 
 if __name__ == "__main__":
-    bell_output("RELINK")
-    bell_output("Apache")
-    bell_output("AEEEM")
-    bell_output("NASA")
+    bell_output("class")
+    bell_output("method")

@@ -1,0 +1,156 @@
+Aoi Name  Pd  Pf  Prec  F1   G  AUC
+   jasml  50   0   100  66  70   75
+     wct  33   0   100  50  57   50
+   itext  33   0    75  46  52   78
+ galleon  16   0   100  28  40   55
+mvnforum  12   0   100  22  35   50
+    emma   0   0     0   0   0   11
+  hsqldb   0   0     0   0   0   25
+jhotdraw   0   0     0   0   0   27
+nekohtml   0   0     0   0   0   47
+ sunflow   0   0     0   0   0   40
+   xmojo   0   0     0   0   0   27
+
+Emma Name  Pd  Pf  Prec  F1   G  AUC
+   itext  77   8    94  87  86   96
+   jasml  75   0   100  85  86  100
+nekohtml  75   0   100  85  86   79
+     wct  75   0   100  85  86   88
+     aoi  66  20    88  76  73   83
+ galleon  33   0   100  50  57   60
+   xmojo  33   0   100  50  57   80
+  hsqldb  30   0   100  46  54   61
+mvnforum  12   0   100  22  35   50
+jhotdraw   0   0     0   0   0   47
+ sunflow   0   0     0   0   0   70
+
+Galleon Name  Pd  Pf  Prec  F1   G  AUC
+jhotdraw  40   0   100  57  63   70
+   itext  22  16    75  33  43   66
+  hsqldb  10   0   100  18  31   33
+     aoi   0   0     0   0   0   31
+    emma   0   0     0   0   0    2
+   jasml   0   0     0   0   0   28
+mvnforum   0   0     0   0   0    0
+nekohtml   0   0     0   0   0    8
+ sunflow   0   0     0   0   0   40
+     wct   0   0     0   0   0    0
+   xmojo   0   0     0   0   0   23
+
+Hsqldb Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  87   0   100  93  93  100
+     wct  62   0   100  76  79   83
+     aoi  41   0   100  57  60   60
+    emma  25   0    70  40  50   51
+jhotdraw  20   0   100  33  44   67
+ galleon   0   0     0   0   0   44
+   itext   0   0     0   0   0   30
+   jasml   0   0     0   0   0    0
+nekohtml   0   0     0   0   0   57
+ sunflow   0  20     0   0   0   45
+   xmojo   0   0     0   0   0   63
+
+Itext Name   Pd  Pf  Prec   F1    G  AUC
+   jasml  100   0   100  100  100  100
+mvnforum   62   0   100   76   79   88
+    emma   75  20    75   75   77   85
+     wct   50   0   100   66   70   62
+ galleon   33  25    66   44   50   61
+ sunflow   25  20    50   33   44   55
+     aoi   16   0    66   26   36   43
+  hsqldb    0   0     0    0    0   29
+jhotdraw    0   0     0    0    0   27
+nekohtml    0   0     0    0    0   54
+   xmojo    0   0     0    0    0   47
+
+Jasml Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  87   0   100  93  93  100
+     wct  66   0   100  80  81   83
+   itext  55   0   100  71  74   89
+  hsqldb  50   0   100  66  70   80
+nekohtml  50  16    66  57  64   75
+    emma  50  20    66  57  63   88
+     aoi  33  20    80  47  51   64
+jhotdraw  20   0   100  33  44   43
+ sunflow  25  20    50  33  44   45
+ galleon  16   0   100  28  40   52
+   xmojo   0   0     0   0   0   60
+
+Jhotdraw Name  Pd  Pf  Prec  F1   G  AUC
+  hsqldb  30   0   100  46  54   68
+ galleon  33   0   100  44  50   65
+     aoi   8   0    83  15  28   51
+    emma   0   0     0   0   0   20
+   itext   0   0     0   0   0   20
+   jasml   0   0     0   0   0   50
+mvnforum   0   0     0   0   0   31
+nekohtml   0   0     0   0   0   55
+ sunflow   0   0     0   0   0   72
+     wct   0   0     0   0   0    8
+   xmojo   0  20     0   0   0   53
+
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+  hsqldb  90   0   100  94  94  100
+     wct  87   0   100  93  93  100
+   itext  77   0   100  87  88   94
+   jasml  75   0   100  85  86  100
+    emma  75  20    75  75  77   90
+     aoi  58   0   100  73  74   82
+nekohtml  50  16    66  57  64   81
+   xmojo  33  20    50  40  51   68
+ galleon   0   0     0   0   0   35
+jhotdraw   0   0     0   0   0   37
+ sunflow   0   0     0   0   0   50
+
+Nekohtml Name   Pd  Pf  Prec   F1    G  AUC
+    emma  100   0   100  100  100  100
+     wct   91   0   100   95   95  100
+  hsqldb   90   0   100   94   94  100
+mvnforum   87   0   100   93   93  100
+   jasml   75   0   100   85   86  100
+   itext   33   0   100   50   57   74
+     aoi   33  20    80   47   51   66
+   xmojo   33  20    50   40   51   67
+ galleon   33   0    66   44   50   52
+jhotdraw    0   0     0    0    0   40
+ sunflow    0  20     0    0    0   50
+
+Sunflow Name   Pd  Pf  Prec   F1    G  AUC
+    emma  100   0   100  100  100  100
+   jasml   75   0   100   85   86  100
+  hsqldb   70   0   100   82   83   88
+   itext   66   0   100   80   81   82
+mvnforum   62   0   100   76   79   75
+     aoi   50   0   100   66   69   82
+nekohtml   50  16    66   57   64   79
+jhotdraw   40   0   100   57   63   73
+     wct   25   0   100   40   50   57
+ galleon   16  25    50   25   35   49
+   xmojo    0   0     0    0    0   70
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+  hsqldb  20   0   100  33  44   38
+jhotdraw  20   0   100  33  44   73
+     aoi   0   0     0   0   0   40
+    emma   0   0     0   0   0   30
+ galleon   0  25     0   0   0   28
+   itext   0   0     0   0   0    2
+   jasml   0   0     0   0   0   12
+mvnforum   0   0     0   0   0   41
+nekohtml   0   0     0   0   0   32
+ sunflow   0  10     0   0   0   42
+   xmojo   0   0     0   0   0   18
+
+Xmojo Name  Pd  Pf  Prec  F1   G  AUC
+     wct  91   0   100  95  95  100
+     aoi  83  20    90  86  81   87
+   jasml  62   0   100  76  78  100
+    emma  75  20    75  75  77   91
+   itext  66   0   100  75  74   81
+mvnforum  50   0   100  66  70   69
+nekohtml  50   0   100  66  70   75
+  hsqldb  45   0   100  61  66   71
+ galleon  33   0   100  50  57   62
+jhotdraw  20   0   100  33  44   70
+ sunflow  12  20    25  16  22   65
+
