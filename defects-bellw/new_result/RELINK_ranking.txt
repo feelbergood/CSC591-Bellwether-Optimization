@@ -1,5 +1,5 @@
 Iteration 1
 Name  Median_G_Score
-  Safe            68.0
-Apache            61.0
+  Safe            72.0
+Apache            65.0
 

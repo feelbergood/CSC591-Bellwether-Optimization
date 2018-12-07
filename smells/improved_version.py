@@ -21,18 +21,41 @@ dir = os.path.abspath(os.path.join(root, "datasets"))
 if root not in sys.path:
     sys.path.append(root)
 
+class _Data:
+
+    def __init__(self, dataName='aoi', type='class'):
+        if type == 'class':
+            dir = os.path.join(root, "data/class")
+        elif type == 'method':
+            dir = os.path.join(root, "data/method")
+
+        self.data = glob(os.path.join(dir, dataName, "*.csv"))
+
+class Class:
+    "class"
+
+    def __init__(self):
+        self.projects = {}
+        for file in ["aoi", "drjava", "exoportal", "fitjava", "fitlibraryforfitnesse",
+                    "freecol", "galleon", "hsqldb", "itext", "jpf", "mvnforum",
+                    "wct", "xalan", "xerces"]:
+            self.projects.update({file: _Data(dataName=file, type='class')})
+
+class Method:
+    "method"
+
+    def __init__(self):
+        self.projects = {}
+        for file in ["aoi", "emma", "galleon", "hsqldb", "itext", "jasml",
+                    "jhotdraw", "mvnforum", "nekohtml", "sunflow", "wct", 
+                    "xmojo"]:
+            self.projects.update({file: _Data(dataName=file, type='method')})
+
 def get_all_projects():
-    dir = os.path.abspath(os.path.join(root, "datasets"))
-    datasets = dict()
-    for datapath in os.listdir(dir):
-        formatted_path = os.path.join(dir, datapath)
-        if os.path.isdir(formatted_path):
-            datasets.update({datapath: dict()})
-            files = glob(os.path.join(formatted_path, "*.csv"))
-            for f in files:
-                fname = f.split('\\')[-1].split("-")[0]
-                datasets[datapath].update({fname: f})
-    return datasets
+    all = dict()
+    for community in [Class, Method]:
+        all.update({community.__doc__: community().projects})
+    return all
 
 def abcd(actual, predicted, distribution, as_percent=True):
     actual = [1 if a > 0 else 0 for a in actual]
@@ -113,8 +136,6 @@ def rf_model(source, target, seed):
     clf.fit(source[features], klass)
     preds = clf.predict(target[target.columns[:-1]])
     distr = clf.predict_proba(target[target.columns[:-1]])
-    print(preds)
-    print(distr)
     return preds, distr[:, 1]
 
 def weight_training(test_instance, training_instance):
@@ -131,12 +152,16 @@ def weight_training(test_instance, training_instance):
     return new_train[columns], new_test[columns]
 
 def list2dataframe(lst, step_size):
-    data = pandas.read_csv(lst)
-    new_data = data.sample(frac=step_size)
-    return new_data
+    data = [pandas.read_csv(elem) for elem in lst]
+    new_data = []
+    for x in data:
+        new_x = x.sample(frac=step_size)
+        new_data.append(new_x)
+    return pandas.concat(new_data, ignore_index=True)
 
-def predict_smells(train, test, seed):
+def predict_defects(train, test, seed):
     actual = test[test.columns[-1]].values.tolist()
+    actual = [1 if act == 1 else 0 for act in actual]
     predicted, distr = rf_model(train, test, seed)
     return actual, predicted, distr
 
@@ -167,13 +192,13 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
             for tgt_name, tgt in target.items():
                 if not src_name == tgt_name:
                     num_comparisons += 1
-                    sc = list2dataframe(src,step_size)
-                    tg = list2dataframe(tgt,step_size)
+                    sc = list2dataframe(src.data,step_size)
+                    tg = list2dataframe(tgt.data,step_size)
                     pd, pf, pr, f1, g, auc = [], [], [], [], [], []
                     for _ in range(n_rep):
                         rseed = random.randint(1, 100)
                         _train, __test = weight_training(test_instance=tg, training_instance=sc)
-                        actual, predicted, distribution = predict_smells(train=_train, test=__test, seed=rseed)
+                        actual, predicted, distribution = predict_defects(train=_train, test=__test, seed=rseed)
                         p_d, p_f, p_r, rc, f_1, e_d, _g, auroc = abcd(actual, predicted, distribution)
                         pd.append(p_d)
                         pf.append(p_f)

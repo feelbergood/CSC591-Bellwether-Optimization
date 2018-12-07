@@ -1,90 +1,105 @@
-Aoi Name   Pd  Pf  Prec  F1   G  AUC
-            exoportal   90   0   100  95  95  100
-                itext   87   0   100  93  93  100
-              freecol   85   0   100  92  92  100
-              fitjava  100  12    33  50  91   95
-               xerces   75   0   100  85  86   91
-                xalan   55   0   100  71  74   70
-              galleon   54   0   100  70  73   78
-               drjava   50   0   100  66  70   76
-                  wct   25   0   100  40  50   50
-               hsqldb    7   0   100  14  27   60
-fitlibraryforfitnesse    0   0     0   0   0    0
-                  jpf    0   0     0   0   0   75
-             mvnforum    0   0     0   0   0   23
+Aoi Name  Pd  Pf  Prec  F1   G  AUC
+                itext  87   0   100  93  93  100
+              freecol  71   0   100  83  84  100
+                  jpf  50   0   100  66  70  100
+              fitjava  50   8    40  50  69   83
+            exoportal  45   0   100  62  67   86
+               xerces  42  10    75  58  64   81
+               drjava  40  25    66  50  54   60
+               hsqldb  25   0   100  40  50   75
+                xalan  14  20    66  25  37   46
+fitlibraryforfitnesse   0   0     0   0   0   17
+              galleon   0   0     0   0   0   18
+             mvnforum   0   0     0   0   0   40
+                  wct   0   0     0   0   0    0
 
 Drjava Name  Pd  Pf  Prec  F1   G  AUC
-               hsqldb  92   0   100  96  96  100
-               xerces  83   0   100  90  91   97
-                  aoi  75   0   100  85  86   88
-                itext  75   0   100  85  86   91
-                  wct  75   0   100  85  86  100
-                xalan  61   0   100  75  78   88
+                itext  75   0   100  85  86   97
+               xerces  71  10    81  74  77   85
                   jpf  50   0   100  66  70  100
-              galleon  45   0   100  62  67   79
-              fitjava  50  12    25  33  66   83
-              freecol  42   0   100  60  65   56
-fitlibraryforfitnesse  33   0   100  50  57   82
-             mvnforum  33   0   100  50  57   81
-            exoportal   0   0     0   0   0   36
+              fitjava  50  14    25  36  67   88
+                  wct  50  21    33  40  59   71
+fitlibraryforfitnesse  33   0   100  50  57   94
+              freecol  28   0   100  44  53   43
+                xalan  28   0    87  40  47   69
+               hsqldb  16   0   100  28  40   75
+             mvnforum  20  25    50  28  38   56
+                  aoi   0   0     0   0   0   50
+            exoportal   0   0     0   0   0   50
+              galleon   0   0     0   0   0   16
 
 Exoportal Name  Pd  Pf  Prec  F1   G  AUC
-              freecol  71   0   100  82  84  100
-                  aoi  25   0   100  40  50  100
-               drjava   0   0     0   0   0    3
-              fitjava   0   4     0   0   0   49
+              freecol  71   0   100  83  84  100
+              galleon  16  12    50  25  38   55
+                itext  12   0   100  22  35   77
+                  aoi   0   0     0   0   0   32
+               drjava   0   0     0   0   0   20
+              fitjava   0   0     0   0   0   68
 fitlibraryforfitnesse   0   0     0   0   0   22
-              galleon   0   0     0   0   0   28
-               hsqldb   0   0     0   0   0   10
-                itext   0   0     0   0   0   21
+               hsqldb   0   0     0   0   0   49
                   jpf   0   0     0   0   0    8
-             mvnforum   0   0     0   0   0   59
-                  wct   0   0     0   0   0   36
-                xalan   0   0     0   0   0    6
-               xerces   0   0     0   0   0   25
+             mvnforum   0   0     0   0   0   65
+                  wct   0   0     0   0   0   21
+                xalan   0   0     0   0   0   23
+               xerces   0  10     0   0   0   34
 
-Fitjava Name  Pd  Pf  Prec  F1   G  AUC
-               hsqldb  92   0   100  96  96  100
-               xerces  91   0   100  95  95  100
-                  aoi  87   0   100  93  93  100
-                itext  87   0   100  93  93  100
-              freecol  85   0   100  92  92  100
-                xalan  55   0   100  71  74   74
-               drjava  50   0   100  66  70   67
-                  jpf  50   0   100  66  70  100
-              galleon  45   0   100  62  67   78
-            exoportal   0   0     0   0   0   50
-fitlibraryforfitnesse   0   0     0   0   0   44
-             mvnforum   0   0     0   0   0   51
-                  wct   0   0     0   0   0   52
+Fitjava Name   Pd  Pf  Prec   F1    G  AUC
+                  jpf  100   0   100  100  100  100
+                itext   87   0   100   93   93  100
+              freecol   71   0   100   83   84  100
+               hsqldb   41   0   100   58   64   86
+               drjava   40  25    66   50   54   45
+                  aoi    0   0     0    0    0   50
+            exoportal    0   0     0    0    0   48
+fitlibraryforfitnesse    0   0     0    0    0   50
+              galleon    0   0     0    0    0   28
+             mvnforum    0  12     0    0    0   32
+                  wct    0   0     0    0    0    7
+                xalan    0  20     0    0    0   44
+               xerces    0  10     0    0    0   61
 
-Fitlibraryforfitnesse Name   Pd  Pf  Prec  F1   G  AUC
-   hsqldb   92   0   100  96  96  100
-    itext   87   0   100  93  93  100
-  fitjava  100  12    33  50  91   91
-      aoi   75   0   100  85  86   88
-   drjava   75   0   100  85  86  100
-      wct   75   0   100  85  86  100
-   xerces   83  20    90  86  81   95
-      jpf   50   0   100  66  70  100
-  freecol   42   0   100  60  65  100
- mvnforum   33   0   100  50  57   78
-  galleon   22   0   100  36  47   66
-    xalan   11   0   100  20  33   56
-exoportal    0   0     0   0   0   36
+Fitlibraryforfitnesse Name  Pd  Pf  Prec  F1   G  AUC
+    itext  87   0   100  93  93  100
+   hsqldb  66   0   100  80  81   94
+  freecol  57   0   100  72  75  100
+      jpf  50   0   100  66  70  100
+   drjava  60  25    75  66  67   75
+    xalan  28   0    75  44  53   70
+  galleon  16   0   100  28  40   36
+ mvnforum  20  25    50  28  38   62
+      wct  25   0    16  20  29   71
+      aoi   0   0     0   0   0   50
+exoportal   0   0     0   0   0   41
+  fitjava   0  10     0   0   0   84
+   xerces   0   0     0   0   0   74
 
-Freecol Name   Pd  Pf  Prec  F1   G  AUC
-               xerces   95   0   100  97  97  100
-               hsqldb   92   0   100  96  96  100
-                itext   87   0   100  93  93   97
-              fitjava  100  12    30  44  89   96
-                  aoi   75   0   100  85  86   94
-               drjava   50   0   100  66  70   75
-                  jpf   50   0   100  66  70  100
-                xalan   44   0   100  61  66   74
-              galleon   36   0   100  53  60   70
-                  wct   25   0   100  40  50   55
-            exoportal    9   0   100  16  30   64
-fitlibraryforfitnesse    0   0     0   0   0   41
-             mvnforum    0   0     0   0   0   42
+Freecol Name   Pd  Pf  Prec   F1    G  AUC
+                itext  100   0   100  100  100  100
+                  jpf   50   0   100   66   70  100
+               drjava   60  25    75   66   67   60
+              fitjava   50   8    22   30   65   81
+               hsqldb   41   0   100   58   64   83
+            exoportal   36   0   100   53   60   73
+                  aoi   14   0   100   25   37   71
+               xerces   14   0   100   25   37   62
+fitlibraryforfitnesse    0   0     0    0    0   47
+              galleon    0   0     0    0    0   10
+             mvnforum    0   0     0    0    0   38
+                  wct    0   0     0    0    0   18
+                xalan    0   0     0    0    0   40
+
+Galleon Name  Pd  Pf  Prec  F1   G  AUC
+                  wct  50   0   100  66  70  100
+            exoportal  36   0   100  53  60   50
+             mvnforum  20   0   100  33  44   68
+                  aoi   0   0     0   0   0   43
+               drjava   0   0     0   0   0   35
+              fitjava   0  14     0   0   0   25
+fitlibraryforfitnesse   0  16     0   0   0   48
+              freecol   0   0     0   0   0    0
+               hsqldb   0   0     0   0   0   24
+                itext   0   0     0   0   0    5
+                  jpf   0   0     0   0   0    0
+                xalan   0   0     0   0   0   33
+               xerces   0   0     0   0   0   39
 
