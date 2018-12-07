@@ -1,1 +1,111 @@
 Iteration 1
+Name  Median_G_Score
+                  aoi             0.0
+               drjava             0.0
+            exoportal             0.0
+              fitjava             0.0
+fitlibraryforfitnesse             0.0
+              freecol             0.0
+              galleon             0.0
+               hsqldb             0.0
+                itext             0.0
+                  jpf             0.0
+             mvnforum             0.0
+                  wct             0.0
+                xalan             0.0
+               xerces             0.0
+
+Iteration 2
+Name  Median_G_Score
+fitlibraryforfitnesse             0.0
+              freecol             0.0
+              galleon             0.0
+               hsqldb             0.0
+                itext             0.0
+                  jpf             0.0
+             mvnforum             0.0
+                  wct             0.0
+                xalan             0.0
+               xerces             0.0
+
+Iteration 3
+Name  Median_G_Score
+     wct            28.5
+  xerces            28.5
+   itext            22.5
+  hsqldb             0.0
+     jpf             0.0
+mvnforum             0.0
+   xalan             0.0
+
+Iteration 4
+Name  Median_G_Score
+   xalan            44.5
+   itext             0.0
+mvnforum             0.0
+     wct             0.0
+  xerces             0.0
+
+Iteration 5
+Name  Median_G_Score
+   xalan            40.0
+mvnforum             0.0
+     wct             0.0
+  xerces             0.0
+
+Iteration 6
+Name  Median_G_Score
+ xalan            67.5
+xerces            27.0
+   wct            17.0
+
+Iteration 7
+Name  Median_G_Score
+ xalan            57.0
+xerces             0.0
+
+Iteration 8
+Name  Median_G_Score
+ xalan             0.0
+xerces             0.0
+
+Iteration 9
+Name  Median_G_Score
+xerces            51.0
+ xalan            38.0
+
+Iteration 10
+Name  Median_G_Score
+xerces            65.0
+ xalan            38.0
+
+Iteration 11
+Name  Median_G_Score
+xerces            51.0
+ xalan            33.0
+
+Iteration 12
+Name  Median_G_Score
+xerces            65.0
+ xalan            61.0
+
+Iteration 13
+Name  Median_G_Score
+xerces            65.0
+ xalan            50.0
+
+Iteration 14
+Name  Median_G_Score
+xerces            51.0
+ xalan             0.0
+
+Iteration 15
+Name  Median_G_Score
+xerces            56.0
+ xalan            50.0
+
+Iteration 16
+Name  Median_G_Score
+xerces            63.0
+ xalan            51.0
+

@@ -1,0 +1,98 @@
+Iteration 1
+Name  Median_G_Score
+     aoi             0.0
+    emma             0.0
+ galleon             0.0
+  hsqldb             0.0
+   itext             0.0
+   jasml             0.0
+jhotdraw             0.0
+mvnforum             0.0
+nekohtml             0.0
+ sunflow             0.0
+     wct             0.0
+   xmojo             0.0
+
+Iteration 2
+Name  Median_G_Score
+   itext             0.0
+   jasml             0.0
+jhotdraw             0.0
+mvnforum             0.0
+nekohtml             0.0
+ sunflow             0.0
+     wct             0.0
+   xmojo             0.0
+
+Iteration 3
+Name  Median_G_Score
+jhotdraw             0.0
+mvnforum             0.0
+nekohtml             0.0
+ sunflow             0.0
+     wct             0.0
+   xmojo             0.0
+
+Iteration 4
+Name  Median_G_Score
+nekohtml             0.0
+ sunflow             0.0
+     wct             0.0
+   xmojo             0.0
+
+Iteration 5
+Name  Median_G_Score
+    wct            28.5
+sunflow            27.0
+  xmojo             0.0
+
+Iteration 6
+Name  Median_G_Score
+sunflow            50.0
+    wct             0.0
+
+Iteration 7
+Name  Median_G_Score
+sunflow            50.0
+    wct             0.0
+
+Iteration 8
+Name  Median_G_Score
+sunflow             0.0
+    wct             0.0
+
+Iteration 9
+Name  Median_G_Score
+sunflow             0.0
+    wct             0.0
+
+Iteration 10
+Name  Median_G_Score
+sunflow            57.0
+    wct             0.0
+
+Iteration 11
+Name  Median_G_Score
+sunflow             0.0
+    wct             0.0
+
+Iteration 12
+Name  Median_G_Score
+    wct            44.0
+sunflow             0.0
+
+Iteration 13
+Name  Median_G_Score
+    wct            44.0
+sunflow             0.0
+
+Iteration 14
+Name  Median_G_Score
+sunflow            52.0
+    wct             0.0
+
+Iteration 15
+Name  Median_G_Score
+sunflow             0.0
+    wct             0.0
+

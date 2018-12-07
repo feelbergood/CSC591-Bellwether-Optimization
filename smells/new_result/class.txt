@@ -1,1 +1,514 @@
 Iteration 1
+Aoi Name  Pd  Pf  Prec  F1   G  AUC
+                itext  75   0   100  85  86  100
+               hsqldb  66   0   100  80  81   83
+               drjava   0   0     0   0   0   50
+            exoportal   0   0     0   0   0   62
+              fitjava   0   7     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0   50
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0   50
+                  jpf   0   0     0   0   0   50
+             mvnforum   0   0     0   0   0   50
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0   50
+               xerces   0   0     0   0   0   62
+
+Drjava Name  Pd  Pf  Prec  F1   G  AUC
+                itext  66   0   100  80  81  100
+               hsqldb  57   0   100  72  75   71
+              freecol  33   0   100  50  57   67
+                  aoi   0   0     0   0   0    0
+            exoportal   0   0     0   0   0   25
+              fitjava   0   0     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0   25
+              galleon   0   0     0   0   0   42
+                  jpf   0   0     0   0   0   67
+             mvnforum   0   0     0   0   0   50
+                  wct   0   0     0   0   0   33
+                xalan   0   0     0   0   0   38
+               xerces   0   0     0   0   0   47
+
+Exoportal Name  Pd  Pf  Prec  F1   G  AUC
+                itext  80   0   100  88  89  100
+                xalan  50   0   100  66  70  100
+                  aoi  33   0   100  50  57  100
+               drjava   0   0     0   0   0   50
+              fitjava   0   0     0   0   0   50
+fitlibraryforfitnesse   0   0     0   0   0   50
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0   50
+               hsqldb   0   0     0   0   0   67
+                  jpf   0   0     0   0   0    0
+             mvnforum   0   0     0   0   0   50
+                  wct   0   0     0   0   0    0
+               xerces   0   0     0   0   0   47
+
+Fitjava Name  Pd  Pf  Prec  F1   G  AUC
+               hsqldb  85   0   100  92  92  100
+                itext  75   0   100  85  86  100
+                  aoi   0   0     0   0   0   50
+               drjava   0   0     0   0   0   50
+            exoportal   0   0     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0   50
+              freecol   0   0     0   0   0   50
+              galleon   0   0     0   0   0   42
+                  jpf   0   0     0   0   0  100
+             mvnforum   0   0     0   0   0   25
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0   25
+               xerces   0  20     0   0   0   53
+
+Fitlibraryforfitnesse Name  Pd  Pf  Prec  F1   G  AUC
+    xalan  75   0   100  85  86  100
+      aoi   0   0     0   0   0   50
+   drjava   0   0     0   0   0    0
+exoportal  66   0   100  80   0    0
+  fitjava   0   0     0   0   0    0
+  freecol   0   0     0   0   0    0
+  galleon   0   0     0   0   0    0
+   hsqldb   0   0     0   0   0   50
+    itext   0   0     0   0   0   25
+      jpf   0   0     0   0   0   50
+ mvnforum   0   0     0   0   0   17
+      wct   0   0     0   0   0   50
+   xerces   0   0     0   0   0   50
+
+Freecol Name  Pd  Pf  Prec  F1   G  AUC
+                itext  66   0   100  80  81  100
+            exoportal  20   0   100  33  44   80
+                  aoi   0   0     0   0   0    0
+               drjava   0   0     0   0   0    0
+              fitjava   0   0     0   0   0   62
+fitlibraryforfitnesse   0   0     0   0   0   50
+              galleon   0   0     0   0   0   50
+               hsqldb   0   0     0   0   0   71
+                  jpf   0   0     0   0   0   50
+             mvnforum   0   0     0   0   0    0
+                  wct   0   0     0   0   0   25
+                xalan   0   0     0   0   0   67
+               xerces   0   0     0   0   0    4
+
+Galleon Name  Pd  Pf  Prec  F1   G  AUC
+             mvnforum  50   0   100  66  70  100
+                  wct  50   0   100  66  70  100
+                  aoi   0   0     0   0   0   50
+               drjava   0   0     0   0   0   83
+            exoportal   0   0     0   0   0   69
+              fitjava   0   0     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0   33
+              freecol   0   0     0   0   0    0
+               hsqldb  87   0   100  93   0    0
+                itext   0   0     0   0   0    0
+                  jpf   0   0     0   0   0    0
+                xalan   0   0     0   0   0   38
+               xerces   0   0     0   0   0   62
+
+Hsqldb Name  Pd  Pf  Prec  F1   G  AUC
+                itext  80   0   100  88  89  100
+                  aoi  66   0   100  80  81  100
+               xerces  75  25    75  75  75   75
+               drjava   0   0     0   0   0   50
+            exoportal  16   0   100  28   0    0
+              fitjava   0   0     0   0   0   23
+fitlibraryforfitnesse   0   0     0   0   0   67
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0   33
+                  jpf   0   0     0   0   0  100
+             mvnforum   0   0     0   0   0   17
+                  wct   0   0     0   0   0   50
+                xalan   0   0     0   0   0   28
+
+Itext Name  Pd  Pf  Prec  F1   G  AUC
+               hsqldb  85   0   100  92  92  100
+            exoportal  50   0   100  66  70   75
+                  aoi   0   0     0   0   0    0
+               drjava   0   0     0   0   0   67
+              fitjava   0   0     0   0   0  100
+fitlibraryforfitnesse   0   0     0   0   0   67
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0   50
+                  jpf   0   0     0   0   0   33
+             mvnforum   0   0     0   0   0   50
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0    0
+               xerces   0   0     0   0   0   56
+
+Jpf Name  Pd  Pf  Prec  F1   G  AUC
+            exoportal  80   0   100  88  89  100
+              freecol  66   0   100  80  81  100
+               hsqldb  66   0   100  80  81  100
+                  aoi  33   0   100  50  57   67
+               drjava  33   0   100  50  57   83
+               xerces  33   0   100  50  57   87
+              fitjava   0   0     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0   50
+              galleon   0   0     0   0   0   28
+                itext   0   0     0   0   0   50
+             mvnforum   0   0     0   0   0    0
+                  wct   0   0     0   0   0   17
+                xalan   0   0     0   0   0    0
+
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+                itext  50   0   100  66  70   75
+              galleon  33   0   100  50  57   38
+                  aoi   0   0     0   0   0    0
+               drjava   0   0     0   0   0   50
+            exoportal   0   0     0   0   0    0
+              fitjava   0   0     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0   67
+              freecol   0   0     0   0   0   50
+               hsqldb   0   0     0   0   0   79
+                  jpf   0   0     0   0   0    0
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0   78
+               xerces   0   0     0   0   0   17
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+              freecol  66   0   100  80  81  100
+               hsqldb  33   0   100  50  57   50
+                  aoi   0   0     0   0   0    0
+               drjava   0   0     0   0   0   75
+            exoportal  33   0   100  50   0    0
+              fitjava   0   0     0   0   0   21
+fitlibraryforfitnesse   0   0     0   0   0    0
+              galleon   0   0     0   0   0    0
+                itext   0   0     0   0   0    0
+                  jpf   0   0     0   0   0   62
+             mvnforum   0   0     0   0   0   50
+                xalan   0   0     0   0   0   61
+               xerces   0   0     0   0   0   60
+
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+                itext  75   0   100  85  86  100
+                  jpf  50   0   100  66  70  100
+                  aoi   0   0     0   0   0   33
+               drjava   0   0     0   0   0   33
+            exoportal   0   0     0   0   0   30
+              fitjava   0   7     0   0   0    0
+fitlibraryforfitnesse   0   0     0   0   0    0
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0    0
+               hsqldb   0   0     0   0   0   54
+             mvnforum  50   0   100  66   0    0
+                  wct   0   0     0   0   0    0
+               xerces   0   0     0   0   0   53
+
+Xerces Name   Pd  Pf  Prec  F1   G  AUC
+              fitjava  100   7    50  66  96  100
+               hsqldb   85   0   100  92  92  100
+                itext   80   0   100  88  89  100
+              freecol   33   0   100  50  57   67
+                xalan   25   0   100  40  50   75
+            exoportal   20   0   100  33  44   40
+                  aoi    0   0     0   0   0   33
+               drjava    0   0     0   0   0    0
+fitlibraryforfitnesse    0   0     0   0   0   67
+              galleon    0   0     0   0   0    0
+                  jpf    0   0     0   0   0    0
+             mvnforum    0   0     0   0   0   33
+                  wct    0   0     0   0   0   50
+
+Iteration 2
+Fitlibraryforfitnesse Name  Pd  Pf  Prec  F1   G  AUC
+   itext  40   0   100  57  63   60
+  hsqldb  33   0   100  50  57   67
+ freecol   0   0     0   0   0  100
+ galleon   0   0     0   0   0   30
+     jpf   0   0     0   0   0   67
+mvnforum   0   0     0   0   0   50
+     wct   0   0     0   0   0   62
+   xalan   0   0     0   0   0   83
+  xerces   0  20     0   0   0   55
+
+Freecol Name  Pd  Pf  Prec  F1   G  AUC
+               hsqldb  83   0   100  90  91  100
+             mvnforum  33   0   100  50  57   83
+fitlibraryforfitnesse   0   0     0   0   0   50
+              galleon   0   0     0   0   0    0
+                itext   0   0     0   0   0   50
+                  jpf   0   0     0   0   0  100
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0   28
+               xerces   0   0     0   0   0   50
+
+Galleon Name  Pd  Pf  Prec  F1  G  AUC
+fitlibraryforfitnesse   0   0     0   0  0    0
+              freecol   0   0     0   0  0    0
+               hsqldb   0   0     0   0  0   46
+                itext   0   0     0   0  0    0
+                  jpf   0   0     0   0  0    0
+             mvnforum   0   0     0   0  0   67
+                  wct   0   0     0   0  0  100
+                xalan   0   0     0   0  0   38
+               xerces   0   0     0   0  0   78
+
+Hsqldb Name  Pd  Pf  Prec  F1   G  AUC
+                itext  80   0   100  88  89  100
+fitlibraryforfitnesse  50   0   100  66  70  100
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0   33
+                  jpf   0   0     0   0   0    0
+             mvnforum   0   0     0   0   0   42
+                  wct   0   0     0   0   0   50
+                xalan   0   0     0   0   0   40
+               xerces   0   0     0   0   0   57
+
+Itext Name  Pd  Pf  Prec  F1   G  AUC
+              freecol  66   0   100  80  81  100
+               xerces  25   0   100  40  50   55
+fitlibraryforfitnesse   0   0     0   0   0   50
+              galleon   0   0     0   0   0   34
+               hsqldb   0   0     0   0   0   50
+                  jpf   0   0     0   0   0  100
+             mvnforum   0   0     0   0   0    0
+                  wct   0   0     0   0   0   50
+                xalan   0   0     0   0   0   57
+
+Jpf Name  Pd  Pf  Prec  F1   G  AUC
+               xerces  66  16    66  66  74   89
+                itext  50   0   100  66  70   96
+              freecol  33   0   100  50  57  100
+               hsqldb  20   0   100  33  44   80
+fitlibraryforfitnesse   0   0     0   0   0   83
+              galleon   0   0     0   0   0   25
+             mvnforum   0   0     0   0   0   50
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0   42
+
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+                xalan  60   0   100  75  77  100
+               hsqldb  33   0   100  50  57   75
+fitlibraryforfitnesse   0   0     0   0   0    0
+              freecol   0   0     0   0   0    0
+              galleon   0   0     0   0   0   10
+                itext   0   0     0   0   0    0
+                  jpf   0   0     0   0   0   50
+                  wct   0   0     0   0   0    0
+               xerces   0   0     0   0   0   48
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+              galleon  66   0   100  80  81   80
+                xalan  50   0   100  66  70   96
+fitlibraryforfitnesse   0   0     0   0   0  100
+              freecol   0   0     0   0   0    0
+               hsqldb   0   0     0   0   0   50
+                itext   0   0     0   0   0    0
+                  jpf   0   0     0   0   0    0
+             mvnforum   0   0     0   0   0   17
+               xerces   0   0     0   0   0   35
+
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+               hsqldb  57   0   100  72  75   71
+               xerces  25  20    50  33  44   43
+fitlibraryforfitnesse   0   0     0   0   0  100
+              freecol   0   0     0   0   0   17
+              galleon   0   0     0   0   0   50
+                itext   0   0     0   0   0    0
+                  jpf   0   0     0   0   0  100
+             mvnforum   0   0     0   0   0   50
+                  wct   0   0     0   0   0   88
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+                itext  75   0   100  85  86  100
+               hsqldb  71   0   100  83  84   86
+              freecol  33   0   100  50  57   83
+fitlibraryforfitnesse   0   0     0   0   0   50
+              galleon   0   0     0   0   0   27
+                  jpf   0   0     0   0   0   50
+             mvnforum   0   0     0   0   0   67
+                  wct   0   0     0   0   0    0
+                xalan   0   0     0   0   0   35
+
+Iteration 3
+Hsqldb Name  Pd  Pf  Prec  F1   G  AUC
+   itext  50   0   100  66  70   75
+     wct  50   0   100  66  70  100
+     jpf   0   0     0   0   0  100
+mvnforum   0   0     0   0   0   92
+   xalan   0   0     0   0   0   42
+  xerces   0   0     0   0   0   52
+
+Itext Name  Pd  Pf  Prec  F1   G  AUC
+  hsqldb  50   0   100  66  70  100
+     jpf  50   0   100  66  70  100
+  xerces  25  16    50  33  45   77
+mvnforum   0   0     0   0   0   33
+     wct   0   0     0   0   0   38
+   xalan   0   0     0   0   0   30
+
+Jpf Name  Pd  Pf  Prec  F1   G  AUC
+   itext  25   0   100  40  50   50
+  hsqldb   0   0     0   0   0   72
+mvnforum   0   0     0   0   0    0
+     wct   0   0     0   0   0    0
+   xalan   0   0     0   0   0   75
+  xerces   0   0     0   0   0   50
+
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+   jpf  50   0   100  66  70  100
+hsqldb  25   0   100  40  50   75
+ itext   0   0     0   0   0   67
+   wct   0  25     0   0   0   75
+ xalan   0   0     0   0   0   57
+xerces   0   0     0   0   0   31
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+   xalan  66   0   100  80  81  100
+mvnforum  50   0   100  66  70  100
+  hsqldb  33   0   100  50  57   78
+   itext   0   0     0   0   0    0
+     jpf   0   0     0   0   0  100
+  xerces   0   0     0   0   0   56
+
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+  hsqldb  75   0   100  85  86   88
+   itext   0   0     0   0   0   12
+     jpf   0   0     0   0   0  100
+mvnforum   0   0     0   0   0   75
+     wct   0   0     0   0   0   38
+  xerces   0  20     0   0   0   48
+
+Xerces Name   Pd  Pf  Prec   F1    G  AUC
+     jpf  100   0   100  100  100  100
+   itext   83   0   100   90   91  100
+mvnforum   33   0   100   50   57   92
+  hsqldb    0   0     0    0    0   57
+     wct    0   0     0    0    0    0
+   xalan    0   0     0    0    0   50
+
+Iteration 4
+Itext Name  Pd  Pf  Prec  F1   G  AUC
+  xerces  25   0   100  40  50   54
+mvnforum   0   0     0   0   0   28
+     wct   0   0     0   0   0   12
+   xalan   0   0     0   0   0   28
+
+Mvnforum Name  Pd  Pf  Prec  F1  G  AUC
+ itext   0   0     0   0  0   20
+   wct   0   0     0   0  0   40
+ xalan   0   0     0   0  0   20
+xerces   0   0     0   0  0   50
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+   itext   0   0     0   0  0    0
+mvnforum   0   0     0   0  0   28
+   xalan   0   0     0   0  0   63
+  xerces   0   0     0   0  0   68
+
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+   itext  83   0   100  90  91  100
+mvnforum  80   0   100  88  89  100
+     wct   0   0     0   0   0    0
+  xerces   0   0     0   0   0   48
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+   itext  66   0   100  80  81   92
+mvnforum   0   0     0   0   0   61
+     wct   0   0     0   0   0    6
+   xalan   0   0     0   0   0   56
+
+Iteration 5
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+ xalan  66   0   100  80  81   96
+   wct   0   0     0   0   0    0
+xerces   0  14     0   0   0   51
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+mvnforum   0   0     0   0  0   22
+   xalan   0   0     0   0  0   56
+  xerces   0   0     0   0  0   53
+
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  25   0   100  40  50   69
+  xerces  16   0   100  28  40   49
+     wct   0   0     0   0   0    0
+
+Xerces Name  Pd  Pf  Prec  F1  G  AUC
+mvnforum   0   0     0   0  0   44
+     wct   0   0     0   0  0   40
+   xalan   0  25     0   0  0   69
+
+Iteration 6
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+xerces  14  16    50  22  34   51
+ xalan   0   0     0   0   0   57
+
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+   wct  50   0   100  66  70   85
+xerces  50  14    75  60  65   64
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  40  25    66  50  54   52
+  wct   0   0     0   0   0   10
+
+Iteration 7
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  33   0   100  50  57   61
+
+Xerces Name  Pd  Pf  Prec  F1  G  AUC
+xalan   0   0     0   0  0   50
+
+Iteration 8
+Xalan Name  Pd  Pf  Prec  F1  G  AUC
+xerces   0  12     0   0  0   55
+
+Xerces Name  Pd  Pf  Prec  F1  G  AUC
+xalan   0   0     0   0  0   43
+
+Iteration 9
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  16  11    50  25  38   55
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  33  20    66  44  51   70
+
+Iteration 10
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  16  10    50  25  38   68
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  42   0   100  60  65   61
+
+Iteration 11
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  14  22    33  20  33   56
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  33  20    66  44  51   63
+
+Iteration 12
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  42  11    75  54  61   71
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  42   0   100  60  65   64
+
+Iteration 13
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  28  11    66  40  50   68
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  42   0   100  60  65   64
+
+Iteration 14
+Xalan Name  Pd  Pf  Prec  F1  G  AUC
+xerces   0   0     0   0  0   46
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  33  20    66  44  51   47
+
+Iteration 15
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  28  11    66  40  50   56
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  42  25    75  54  56   46
+
+Iteration 16
+Xalan Name  Pd  Pf  Prec  F1   G  AUC
+xerces  33  20    50  40  51   78
+
+Xerces Name  Pd  Pf  Prec  F1   G  AUC
+xalan  50  20    75  60  63   62
+

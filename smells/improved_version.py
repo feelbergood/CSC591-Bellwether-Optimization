@@ -136,6 +136,10 @@ def rf_model(source, target, seed):
     clf.fit(source[features], klass)
     preds = clf.predict(target[target.columns[:-1]])
     distr = clf.predict_proba(target[target.columns[:-1]])
+    if distr[0].size>1:
+        return preds, distr[:, 1]
+    else:
+        return preds, np.zeros(distr.size)
     return preds, distr[:, 1]
 
 def weight_training(test_instance, training_instance):
@@ -169,22 +173,27 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
     num_comparisons = 0
     lives = 10
     threshold = 52
-    step_size = 0.25
+    step_size = 0.5
+    counter = 1
+
+    myfile_check = Path("new_result/"+fname+".txt")
+    if myfile_check.is_file():
+        open("new_result/"+fname+".txt", 'w').close()
+    
+
+    myrankingfile_check = Path("new_result/"+fname+"_ranking.txt")
+    if myrankingfile_check.is_file():
+        open("new_result/"+fname+"_ranking.txt", 'w').close()
+    
 
     while lives > 0:
-        counter = 1
-        result = dict()
-        myfile_check = Path("new_result/"+fname+".txt")
-        if myfile_check.is_file():
-            open("new_result/"+fname+".txt", 'w').close()
         with open("new_result/"+fname+".txt", "a") as myfile:
             myfile.write("Iteration "+str(counter)+"\n")
-
-        myrankingfile_check = Path("new_result/"+fname+"_ranking.txt")
-        if myrankingfile_check.is_file():
-            open("new_result/"+fname+"_ranking.txt", 'w').close()
+            
         with open("new_result/"+fname+"_ranking.txt", "a") as myfile:
             myfile.write("Iteration "+str(counter)+"\n")
+        
+        result = dict()
 
         for src_name, src in source.items():
             stats = []
@@ -206,10 +215,14 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
                         f1.append(f_1)
                         g.append(_g)
                         auc.append(int(auroc))
-
-                    stats.append([tgt_name, int(np.median(pd)), int(np.median(pf)),
-                                  int(np.median(pr)), int(np.median(f1)),
-                                  int(np.median(g)), int(np.median(auc))])
+                    if np.isnan(pf) or np.isnan(g) or np.isnan(auc):
+                        stats.append([tgt_name, int(np.median(pd)), 0,
+                            int(np.median(pr)), int(np.median(f1)),
+                            0, 0])
+                    else: 
+                        stats.append([tgt_name, int(np.median(pd)), int(np.median(pf)),
+                            int(np.median(pr)), int(np.median(f1)),
+                            int(np.median(g)), int(np.median(auc))])
 
             stats = pandas.DataFrame(sorted(stats, key=lambda lst: lst[-2], reverse=True),
                                      columns=["Name", "Pd", "Pf", "Prec", "F1", "G", "AUC"])
@@ -259,7 +272,7 @@ def bellw(source, target, fname, verbose=True, n_rep=30):
         if step_size < 0.95:
             step_size = step_size + 0.05
 
-    print("Number of comparisons: "+num_comparisons)
+    print("Number of comparisons: "+str(num_comparisons))
     print(source.items())
 
 

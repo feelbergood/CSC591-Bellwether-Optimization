@@ -1,0 +1,377 @@
+Iteration 1
+Aoi Name  Pd  Pf  Prec  F1   G  AUC
+   xmojo  50   0   100  66  70  100
+    emma   0   0     0   0   0   50
+ galleon   0   0     0   0   0   75
+  hsqldb   0   0     0   0   0  100
+   itext   0   0     0   0   0   71
+   jasml   0   0     0   0   0   33
+jhotdraw   0   0     0   0   0   17
+mvnforum   0   0     0   0   0   33
+nekohtml   0   0     0   0   0   50
+ sunflow   0   0     0   0   0  100
+     wct   0   0     0   0   0   38
+
+Emma Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  33   0   100  50  57   83
+     aoi   0   0     0   0   0   42
+ galleon   0   0     0   0   0   50
+  hsqldb   0   0     0   0   0   12
+   itext   0   0     0   0   0    0
+   jasml   0   0     0   0   0  100
+jhotdraw   0   0     0   0   0   33
+nekohtml   0   0     0   0   0   67
+ sunflow   0   0     0   0   0   75
+     wct   0   0     0   0   0   44
+   xmojo   0   0     0   0   0  100
+
+Galleon Name  Pd  Pf  Prec  F1   G  AUC
+     wct  50  25    50  50  61   88
+     aoi   0   0     0   0   0   86
+    emma   0   0     0   0   0    0
+  hsqldb   0   0     0   0   0   17
+   itext   0   0     0   0   0    0
+   jasml   0   0     0   0   0   33
+jhotdraw   0   0     0   0   0   75
+mvnforum   0   0     0   0   0   50
+nekohtml   0   0     0   0   0    0
+ sunflow   0   0     0   0   0  100
+   xmojo   0   0     0   0   0   83
+
+Hsqldb Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  33   0   100  50  57  100
+     aoi   0   0     0   0   0    0
+    emma   0   0     0   0   0    0
+ galleon   0   0     0   0   0   25
+   itext   0   0     0   0   0   40
+   jasml   0   0     0   0   0   50
+jhotdraw   0   0     0   0   0   67
+nekohtml   0   0     0   0   0    0
+ sunflow   0   0     0   0   0   75
+     wct   0   0     0   0   0  100
+   xmojo   0   0     0   0   0   50
+
+Itext Name  Pd  Pf  Prec  F1  G  AUC
+     aoi   0   0     0   0  0   57
+    emma   0   0     0   0  0    0
+ galleon   0   0     0   0  0   25
+  hsqldb   0   0     0   0  0   38
+   jasml   0   0     0   0  0  100
+jhotdraw   0   0     0   0  0   25
+mvnforum   0   0     0   0  0    0
+nekohtml   0   0     0   0  0   25
+ sunflow   0   0     0   0  0   83
+     wct   0   0     0   0  0    0
+   xmojo   0   0     0   0  0   50
+
+Jasml Name  Pd  Pf  Prec  F1   G  AUC
+    emma  50   0   100  66  70  100
+     aoi   0   0     0   0   0   14
+ galleon   0   0     0   0   0   67
+  hsqldb   0   0     0   0   0   22
+   itext   0   0     0   0   0   70
+jhotdraw   0   0     0   0   0   33
+mvnforum   0   0     0   0   0   75
+nekohtml   0   0     0   0   0   50
+ sunflow   0   0     0   0   0    0
+     wct   0   0     0   0   0    0
+   xmojo   0   0     0   0   0   12
+
+Jhotdraw Name  Pd  Pf  Prec  F1   G  AUC
+  hsqldb  50   0   100  66  70   50
+ sunflow  50   0   100  66  70  100
+     aoi   0   0     0   0   0    0
+    emma   0   0     0   0   0    0
+ galleon   0   0     0   0   0   75
+   itext   0   0     0   0   0   42
+   jasml   0   0     0   0   0   33
+mvnforum   0   0     0   0   0    0
+nekohtml   0   0     0   0   0   25
+     wct   0   0     0   0   0   11
+   xmojo   0   0     0   0   0  100
+
+Mvnforum Name  Pd  Pf  Prec  F1  G  AUC
+     aoi   0   0     0   0  0   36
+    emma   0   0     0   0  0  100
+ galleon   0   0     0   0  0   50
+  hsqldb   0   0     0   0  0    0
+   itext   0   0     0   0  0   50
+   jasml   0   0     0   0  0    0
+jhotdraw   0   0     0   0  0   25
+nekohtml   0   0     0   0  0   50
+ sunflow   0   0     0   0  0   50
+     wct   0   0     0   0  0   17
+   xmojo   0   0     0   0  0   75
+
+Nekohtml Name  Pd  Pf  Prec  F1  G  AUC
+     aoi   0   0     0   0  0   21
+    emma   0   0     0   0  0   50
+ galleon   0   0     0   0  0   67
+  hsqldb   0   0     0   0  0   67
+   itext   0   0     0   0  0   36
+   jasml   0   0     0   0  0  100
+jhotdraw   0   0     0   0  0   88
+mvnforum   0   0     0   0  0   62
+ sunflow   0   0     0   0  0   62
+     wct   0   0     0   0  0   75
+   xmojo   0   0     0   0  0    0
+
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  66   0   100  80  81  100
+     aoi   0   0     0   0   0   14
+    emma   0   0     0   0   0   83
+ galleon   0   0     0   0   0   25
+  hsqldb   0   0     0   0   0   50
+   itext   0   0     0   0   0   43
+   jasml   0   0     0   0   0   50
+jhotdraw   0   0     0   0   0  100
+nekohtml   0   0     0   0   0   38
+     wct   0   0     0   0   0   56
+   xmojo   0   0     0   0   0   75
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+ galleon  50   0   100  66  70  100
+mvnforum  33   0   100  50  57   67
+     aoi   0   0     0   0   0   23
+    emma   0   0     0   0   0    0
+  hsqldb   0   0     0   0   0  100
+   itext   0   0     0   0   0   56
+   jasml   0   0     0   0   0  100
+jhotdraw   0   0     0   0   0   50
+nekohtml   0  25     0   0   0   75
+ sunflow   0   0     0   0   0   25
+   xmojo   0   0     0   0   0   67
+
+Xmojo Name  Pd  Pf  Prec  F1   G  AUC
+jhotdraw  66   0   100  80  81  100
+ sunflow  66   0   100  80  81  100
+     aoi   0  14     0   0   0   79
+    emma   0   0     0   0   0  100
+ galleon   0   0     0   0   0   42
+  hsqldb   0   0     0   0   0    0
+   itext   0   0     0   0   0    0
+   jasml   0   0     0   0   0   67
+mvnforum   0   0     0   0   0    0
+nekohtml   0   0     0   0   0    0
+     wct   0   0     0   0   0   25
+
+Iteration 2
+Itext Name  Pd  Pf  Prec  F1   G  AUC
+ sunflow  66   0   100  80  81  100
+   jasml  50   0   100  66  70  100
+mvnforum  25   0   100  40  50  100
+jhotdraw   0   0     0   0   0   25
+nekohtml   0   0     0   0   0    0
+     wct   0   0     0   0   0   33
+   xmojo   0   0     0   0   0   62
+
+Jasml Name  Pd  Pf  Prec  F1  G  AUC
+   itext   0   0     0   0  0   56
+jhotdraw   0   0     0   0  0   33
+mvnforum   0   0     0   0  0   88
+nekohtml   0   0     0   0  0   50
+ sunflow   0   0     0   0  0    0
+     wct   0  25     0   0  0   42
+   xmojo   0   0     0   0  0   62
+
+Jhotdraw Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  33   0   100  50  57   83
+   itext   0   0     0   0   0    0
+   jasml   0   0     0   0   0   50
+nekohtml   0   0     0   0   0   50
+ sunflow   0   0     0   0   0    8
+     wct   0   0     0   0   0   67
+   xmojo   0   0     0   0   0   17
+
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+jhotdraw  33   0   100  50  57   67
+   itext   0   0     0   0   0   42
+   jasml   0   0     0   0   0   25
+nekohtml   0   0     0   0   0    0
+ sunflow   0   0     0   0   0   50
+     wct   0   0     0   0   0   50
+   xmojo   0   0     0   0   0   12
+
+Nekohtml Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  75   0   100  85  86  100
+ sunflow  50   0   100  66  70  100
+   itext   0   0     0   0   0    0
+   jasml   0   0     0   0   0    0
+jhotdraw   0   0     0   0   0   75
+     wct   0   0     0   0   0   67
+   xmojo   0   0     0   0   0   12
+
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+jhotdraw  66   0   100  80  81  100
+mvnforum  50   0   100  66  70  100
+   itext   0   0     0   0   0   36
+   jasml   0   0     0   0   0    0
+nekohtml   0   0     0   0   0   50
+     wct   0   0     0   0   0   38
+   xmojo   0   0     0   0   0   50
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+   itext   0   0     0   0  0    8
+   jasml   0   0     0   0  0    0
+jhotdraw   0   0     0   0  0    0
+mvnforum   0   0     0   0  0    0
+nekohtml   0  20     0   0  0   80
+ sunflow   0   0     0   0  0   83
+   xmojo   0   0     0   0  0  100
+
+Xmojo Name  Pd  Pf  Prec  F1  G  AUC
+   itext   0   0     0   0  0   67
+   jasml   0   0     0   0  0    0
+jhotdraw   0   0     0   0  0   33
+mvnforum   0   0     0   0  0   25
+nekohtml   0  20     0   0  0   80
+ sunflow   0   0     0   0  0   33
+     wct   0   0     0   0  0   28
+
+Iteration 3
+Jhotdraw Name  Pd  Pf  Prec  F1  G  AUC
+mvnforum   0   0     0   0  0    0
+nekohtml   0   0     0   0  0    0
+ sunflow   0   0     0   0  0   50
+     wct   0   0     0   0  0    0
+   xmojo   0   0     0   0  0   67
+
+Mvnforum Name  Pd  Pf  Prec  F1   G  AUC
+     wct  75  25    75  75  75   78
+jhotdraw   0   0     0   0   0   25
+nekohtml   0   0     0   0   0    0
+ sunflow   0   0     0   0   0   42
+   xmojo   0  25     0   0   0   75
+
+Nekohtml Name  Pd  Pf  Prec  F1   G  AUC
+   xmojo  50   0   100  66  70  100
+jhotdraw   0   0     0   0   0   17
+mvnforum   0   0     0   0   0    0
+ sunflow   0   0     0   0   0   33
+     wct   0   0     0   0   0   17
+
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+   xmojo  50   0   100  66  70  100
+jhotdraw   0   0     0   0   0   83
+mvnforum   0   0     0   0   0    0
+nekohtml   0   0     0   0   0   40
+     wct   0   0     0   0   0   47
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+jhotdraw   0   0     0   0  0   17
+mvnforum   0   0     0   0  0   17
+nekohtml   0  25     0   0  0   38
+ sunflow   0   0     0   0  0   50
+   xmojo   0   0     0   0  0   83
+
+Xmojo Name  Pd  Pf  Prec  F1   G  AUC
+mvnforum  50   0   100  66  70   88
+jhotdraw   0   0     0   0   0   38
+nekohtml   0   0     0   0   0   20
+ sunflow   0   0     0   0   0   67
+     wct   0   0     0   0   0   33
+
+Iteration 4
+Nekohtml Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   61
+    wct   0   0     0   0  0   37
+  xmojo   0   0     0   0  0   25
+
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+   xmojo  66   0   100  80  81  100
+nekohtml   0  20     0   0   0   60
+     wct   0   0     0   0   0    7
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+nekohtml   0   0     0   0  0    0
+ sunflow   0   0     0   0  0    6
+   xmojo   0   0     0   0  0   33
+
+Xmojo Name  Pd  Pf  Prec  F1  G  AUC
+nekohtml   0   0     0   0  0   17
+ sunflow   0   0     0   0  0   62
+     wct   0   0     0   0  0   47
+
+Iteration 5
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+  wct  40  25    66  50  54   70
+xmojo   0  25     0   0   0   75
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+sunflow  33   0   100  50  57   78
+  xmojo   0   0     0   0   0   88
+
+Xmojo Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   44
+    wct   0   0     0   0  0   38
+
+Iteration 6
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+wct  25   0   100  40  50   52
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   67
+
+Iteration 7
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+wct  33  25    66  44  50   62
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   54
+
+Iteration 8
+Sunflow Name  Pd  Pf  Prec  F1  G  AUC
+wct   0   0     0   0  0   33
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   27
+
+Iteration 9
+Sunflow Name  Pd  Pf  Prec  F1  G  AUC
+wct   0   0     0   0  0   32
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0  20     0   0  0   47
+
+Iteration 10
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+wct  33   0   100  50  57   47
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   45
+
+Iteration 11
+Sunflow Name  Pd  Pf  Prec  F1  G  AUC
+wct   0  14     0   0  0   46
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0  20     0   0  0   65
+
+Iteration 12
+Sunflow Name  Pd  Pf  Prec  F1  G  AUC
+wct   0  16     0   0  0   36
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+sunflow  25  20    50  33  44   52
+
+Iteration 13
+Sunflow Name  Pd  Pf  Prec  F1  G  AUC
+wct   0   0     0   0  0   61
+
+Wct Name  Pd  Pf  Prec  F1   G  AUC
+sunflow  25  20    50  33  44   52
+
+Iteration 14
+Sunflow Name  Pd  Pf  Prec  F1   G  AUC
+wct  33  16    66  44  52   50
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0  20     0   0  0   48
+
+Iteration 15
+Sunflow Name  Pd  Pf  Prec  F1  G  AUC
+wct   0   0     0   0  0   42
+
+Wct Name  Pd  Pf  Prec  F1  G  AUC
+sunflow   0   0     0   0  0   38
+

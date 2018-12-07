@@ -136,6 +136,10 @@ def rf_model(source, target, seed):
     clf.fit(source[features], klass)
     preds = clf.predict(target[target.columns[:-1]])
     distr = clf.predict_proba(target[target.columns[:-1]])
+    print("distr")
+    print(distr)
+    print("distr:1")
+    print(distr[:, 0])
     return preds, distr[:, 1]
 
 
